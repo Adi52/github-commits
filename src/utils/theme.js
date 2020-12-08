@@ -1,9 +1,17 @@
+const spacing = {
+    xs: 10,
+    sm: 15,
+    xl: 30,
+}
+
+const fonts = {
+    logo: "'Raleway', sans-serif",
+
+}
+
 export const lightTheme = {
-    spacing: {
-        xs: 5,
-        sm: 10,
-        xl: 20,
-    },
+    spacing: spacing,
+    fonts: fonts,
 
     colors: {
         main: '#d9e4dd',
@@ -15,11 +23,8 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-    spacing: {
-        xs: 5,
-        sm: 10,
-        xl: 20,
-    },
+    spacing: spacing,
+    fonts: fonts,
 
     colors: {
         main: '#525252',
