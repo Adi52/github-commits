@@ -1,7 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {Container, Logo, Wrapper} from './LogoWrapper.css'
-import logo from '../../assets/images/github.png'
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 
@@ -11,7 +10,7 @@ const LogoWrapper = () => {
         <Wrapper>
             <Container>
                 <Logo>
-                    <img src={logo} alt="Logo"/>
+                    <div></div>
                     <h1>Github commits</h1>
                 </Logo>
                 <ThemeSwitcher />

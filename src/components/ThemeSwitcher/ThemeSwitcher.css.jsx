@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 export const Switcher = styled.div`             
     label { 
         position: relative ; 
@@ -15,13 +16,13 @@ export const Switcher = styled.div`
     label:after { 
         content: ''; 
         position: absolute; 
-        width: 18.5px; 
-        height: 18.5px; 
+        width: 20px; 
+        height: 20px; 
         border-radius: 50%; 
-        border: 1px solid ${({ theme }) => theme.colors.foreground};
+        border: 0.5px solid gray;
         background-color: gray; 
-        top: -0.93px;  
-        left: -0.8px; 
+        top: -1px;  
+        left: -1px; 
         transition:  all 0.3s; 
     } 
         

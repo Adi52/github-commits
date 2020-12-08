@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import logo from '../../assets/images/github.svg'
 
 
 export const Wrapper = styled.div`
@@ -19,14 +20,16 @@ export const Container = styled.div`
 export const Logo = styled.div`
   display: flex;
   
-  
-  & img {
+  & div {
+    // Thanks it I can easy change fill color
+    background-color: ${({ theme }) => theme.colors.text};
+    mask: url(${logo}) no-repeat center;
     width: 60px;
     height: 60px;
   }
   
   & h1 {
-    font-family: Arial;
+    font-family: Arial,serif;
     color: ${({ theme }) => theme.colors.text};
   }
 `;
