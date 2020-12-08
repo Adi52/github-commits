@@ -11,7 +11,7 @@ const LogoWrapper = () => {
             <Container>
                 <Logo>
                     <div></div>
-                    <h1>Github commits</h1>
+                    <h1>githubCommits</h1>
                 </Logo>
                 <ThemeSwitcher />
             </Container>

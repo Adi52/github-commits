@@ -19,17 +19,23 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  user-select: none;
+  cursor: pointer;
   
   & div {
     // Thanks it I can easy change fill color
     background-color: ${({ theme }) => theme.colors.text};
     mask: url(${logo}) no-repeat center;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    margin-right: ${({ theme }) => theme.spacing.sm}px;
   }
   
   & h1 {
-    font-family: Arial,serif;
+    font-family: ${({ theme }) => theme.fonts.logo};
     color: ${({ theme }) => theme.colors.text};
   }
 `;
