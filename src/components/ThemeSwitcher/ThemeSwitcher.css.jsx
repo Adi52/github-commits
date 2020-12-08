@@ -11,6 +11,7 @@ export const Switcher = styled.div`
         border-radius: 30px; 
         border: 2px solid gray; 
         user-select: none;
+        cursor: pointer;
     } 
     
     label:after { 
