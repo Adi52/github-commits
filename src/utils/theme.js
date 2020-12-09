@@ -6,7 +6,7 @@ const spacing = {
 
 const fonts = {
     logo: "'Raleway', sans-serif",
-
+    first: "'Montserrat', sans-serif",
 }
 
 export const lightTheme = {
