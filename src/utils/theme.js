@@ -15,10 +15,10 @@ export const lightTheme = {
 
     colors: {
         main: '#d9e4dd',
-        secondary: '#fbf7f0',
+        secondary: '#c2beb8',
         foreground: '#cdc9c3',
         contrast: '#555555',
-        text: 'black',
+        text: '#313131',
     },
 }
 
@@ -31,6 +31,6 @@ export const darkTheme = {
         secondary: '#414141',
         foreground: '#313131',
         contrast: '#ca3e47',
-        text: 'white',
+        text: '#d9e4dd',
     },
 }

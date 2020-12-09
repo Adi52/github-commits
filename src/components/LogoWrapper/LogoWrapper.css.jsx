@@ -15,6 +15,7 @@ export const Container = styled.div`
   align-content: center;
   background-color: ${({ theme }) => theme.colors.foreground};
   padding: 0 ${({ theme }) => theme.spacing.xl}px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.contrast}
 `
 
 export const Logo = styled.div`
