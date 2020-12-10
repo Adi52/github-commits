@@ -7,13 +7,3 @@ export const Container = styled.div`
   justify-content: flex-start;
   height: 80vh;
 `;
-
-
-export const Buttons = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.sm}px;
-  width: 70%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;

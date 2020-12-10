@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {ThemeProvider} from 'styled-components'
 
 import GlobalStyles from './index.css'
@@ -13,21 +13,10 @@ import {darkTheme, lightTheme} from "./utils/theme";
 import {Wrapper} from "./components/LogoWrapper/LogoWrapper.css";
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import Search from "./pages/Search/Search";
-// import request from "./helpers/request";
 
 
 const App = () => {
     const {theme} = useContext(StoreContext);
-
-
-    // const fetchData = async () => {
-    //     const { data } = await request.get('/adi52');
-    //     console.log(data);
-    // };
-    //
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
 
 
     return (

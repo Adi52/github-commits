@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 
-export const Switcher = styled.div`             
+export const Switcher = styled.div`         
     label { 
+        box-sizing: content-box;
         position: relative ; 
         display: inline-block; 
         width: 40px; 
