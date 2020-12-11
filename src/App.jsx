@@ -13,6 +13,7 @@ import {darkTheme, lightTheme} from "./utils/theme";
 import {Wrapper} from "./components/LogoWrapper/LogoWrapper.css";
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import Search from "./pages/Search/Search";
+import UserRepos from "./pages/UserRepos/UserRepos";
 
 
 const App = () => {
@@ -27,10 +28,11 @@ const App = () => {
                 <LogoWrapper/>
                 <Wrapper>
                     <Switch>
-                        <Route exact path={"/"}>
-                            <Search />
+                        <Route exact path={"/"} component={Search}>
                         </Route>
-                        <Route path={"/repos"}>
+                        <Route path={"/user/:user"} component={UserRepos}>
+                        </Route>
+                        <Route path={"/:user/:repo"}>
 
                         </Route>
                     </Switch>

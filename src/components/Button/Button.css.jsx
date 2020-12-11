@@ -13,6 +13,9 @@ const RootButton = styled.button`
   text-transform: uppercase;
   font-weight: bold;
   min-width: 150px;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const RegularButton = styled(RootButton)`

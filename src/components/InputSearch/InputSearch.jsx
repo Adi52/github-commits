@@ -56,7 +56,7 @@ const InputSearch = () => {
             setShowSuggestions(false);
             setResults([]);
         }
-    }, [userInput])
+    }, [showSuggestions, userInput])
 
     useEffect(() => {
         // Hide suggestions when user click outside input
@@ -66,6 +66,8 @@ const InputSearch = () => {
             document.removeEventListener("click", handleClickOutsideInput);
         };
     });
+
+
 
     return (
         <>
@@ -85,10 +87,10 @@ const InputSearch = () => {
             />
 
             <Buttons>
-                <Button variant={"regular"}>
+                <Button variant={"regular"} to={'/user/adi52'}>
                     Example
                 </Button>
-                <Button variant={"primary"}>
+                <Button variant={"primary"} to={userInput ? `user/${userInput}` : ''}>
                     Search
                 </Button>
             </Buttons>
