@@ -6,8 +6,6 @@ import request from "../../helpers/request";
 import Button from "../Button/Button";
 import Suggestions from './subcomponents/Suggestions/Suggestions';
 
-const TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
-
 
 const InputSearch = () => {
     const [userInput, setUserInput] = useState('');
@@ -23,12 +21,7 @@ const InputSearch = () => {
     };
 
     const fetchUsersList = () => {
-        request.get(`/search/users?q=${userInput}&per_page=3`,
-            {
-                headers: {
-                    "Authorization": `token ${TOKEN}`,
-                },
-            })
+        request.get(`/search/users?q=${userInput}&per_page=3`)
 
             .then((response) => {
                 setResults(response.data.items)
