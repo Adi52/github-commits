@@ -13,7 +13,7 @@ import {darkTheme, lightTheme} from "./utils/theme";
 import {Wrapper} from "./components/LogoWrapper/LogoWrapper.css";
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import Search from "./pages/Search/Search";
-import UserRepos from "./pages/UserRepos/UserRepos";
+import UserInfo from "./pages/UserRepos/UserInfo";
 
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
                     <Switch>
                         <Route exact path={"/"} component={Search}>
                         </Route>
-                        <Route path={"/user/:user"} component={UserRepos}>
+                        <Route path={"/user/:user"} component={UserInfo}>
                         </Route>
                         <Route path={"/:user/:repo"}>
 
