@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const UserImage = styled.img`
   border-radius: 50%;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  width: ${({ theme }) => theme.spacing.xl*5}px
+  width: ${({ theme }) => theme.spacing.xl*5}px;
 `;
 
 export const UserName = styled.a`
