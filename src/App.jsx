@@ -13,6 +13,8 @@ import {darkTheme, lightTheme} from "./utils/theme";
 // Pages
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Search from "./pages/Search/Search";
+import CommitsTimeline from "./pages/CommitsTimeline/CommitsTimeline";
+
 
 // Components and styles
 import GlobalStyles from './index.css'
@@ -34,8 +36,8 @@ const App = () => {
                 <LogoWrapper/>
                 <Switch>
                     <Route exact path={"/"} component={Search}/>
-                    <Route path={"/user/:user"} component={UserInfo}/>
-                    <Route path={"/:user/:repo"} />
+                    <Route exact path={"/user/:user"} component={UserInfo}/>
+                    <Route path={"/user/:user/:repo"} component={CommitsTimeline}/>
                     <Route component={ErrorPage} />
                 </Switch>
                 <Footer />
