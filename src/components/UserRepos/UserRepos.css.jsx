@@ -6,8 +6,10 @@ export const Container = styled.div`
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-content: space-between;
+  align-content: flex-start;
   margin-top: ${({ theme }) => theme.spacing.sm}px;
   margin-bottom: ${({ theme }) => theme.spacing.xl}px;
+  min-height: ${({ theme }) => theme.minSectionHeight};
+
 
 `;

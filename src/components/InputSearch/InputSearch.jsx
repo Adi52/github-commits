@@ -23,15 +23,6 @@ const InputSearch = () => {
         }
     };
 
-    const fetchUsersList = () => {
-        request.get(`/search/users?q=${userInput}&per_page=3`)
-
-            .then((response) => {
-                setResults(response.data.items)
-            })
-            .catch();
-    }
-
     const handleChangeInput = (e) => {
         setUserInput(e.target.value);
         setShowSuggestions(true);
@@ -47,7 +38,13 @@ const InputSearch = () => {
         if (userInput.length > 1
             && userInput
             && showSuggestions) {
-            fetchUsersList()
+                // fetch user list!
+                request.get(`/search/users?q=${userInput}&per_page=3`)
+
+                    .then((response) => {
+                        setResults(response.data.items)
+                    })
+                    .catch();
         } else {
             setShowSuggestions(false);
             setResults([]);

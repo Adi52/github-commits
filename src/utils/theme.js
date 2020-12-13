@@ -4,6 +4,8 @@ const spacing = {
     xl: 30,
 }
 
+const minSectionHeight = '83vh';
+
 const fonts = {
     logo: "'Raleway', sans-serif",
     first: "'Montserrat', sans-serif",
@@ -11,6 +13,7 @@ const fonts = {
 
 export const lightTheme = {
     spacing: spacing,
+    minSectionHeight: minSectionHeight,
     fonts: fonts,
 
     colors: {
@@ -26,6 +29,7 @@ export const lightTheme = {
 
 export const darkTheme = {
     spacing: spacing,
+    minSectionHeight: minSectionHeight,
     fonts: fonts,
 
     colors: {
