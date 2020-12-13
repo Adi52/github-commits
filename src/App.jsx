@@ -28,13 +28,9 @@ const App = () => {
                 <LogoWrapper/>
                 <Wrapper>
                     <Switch>
-                        <Route exact path={"/"} component={Search}>
-                        </Route>
-                        <Route path={"/user/:user"} component={UserInfo}>
-                        </Route>
-                        <Route path={"/:user/:repo"}>
-
-                        </Route>
+                        <Route exact path={"/"} component={Search}/>
+                        <Route path={"/user/:user"} component={UserInfo}/>
+                        <Route path={"/:user/:repo"} />
                     </Switch>
                 </Wrapper>
             </Router>
