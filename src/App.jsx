@@ -10,10 +10,10 @@ import {
 } from "react-router-dom";
 
 import {darkTheme, lightTheme} from "./utils/theme";
-import {Wrapper} from "./components/LogoWrapper/LogoWrapper.css";
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import Search from "./pages/Search/Search";
 import UserInfo from "./pages/UserRepos/UserInfo";
+import Footer from "./components/Footer/Footer";
 
 
 const App = () => {
@@ -26,13 +26,12 @@ const App = () => {
             <GlobalStyles/>
             <Router>
                 <LogoWrapper/>
-                <Wrapper>
-                    <Switch>
-                        <Route exact path={"/"} component={Search}/>
-                        <Route path={"/user/:user"} component={UserInfo}/>
-                        <Route path={"/:user/:repo"} />
-                    </Switch>
-                </Wrapper>
+                <Switch>
+                    <Route exact path={"/"} component={Search}/>
+                    <Route path={"/user/:user"} component={UserInfo}/>
+                    <Route path={"/:user/:repo"} />
+                </Switch>
+                <Footer />
             </Router>
         </ThemeProvider>
     );

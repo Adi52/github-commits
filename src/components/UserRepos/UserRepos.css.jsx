@@ -7,5 +7,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
-  margin: ${({ theme }) => theme.spacing.sm}px 0;
+  margin-top: ${({ theme }) => theme.spacing.sm}px;
+  margin-bottom: ${({ theme }) => theme.spacing.xl}px;
+
 `;

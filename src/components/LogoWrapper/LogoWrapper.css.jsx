@@ -2,17 +2,13 @@ import styled from 'styled-components'
 import logo from '../../assets/images/github.svg'
 
 
-export const Wrapper = styled.div`
-  width: 100%;
-  top: 0;
-  left: 0;
-`;
-
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  height: 10vh;
+  min-height: 70px;
   background-color: ${({ theme }) => theme.colors.foreground};
   padding: 0 ${({ theme }) => theme.spacing.xl}px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.contrast}
