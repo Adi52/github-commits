@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
 import {ThemeProvider} from 'styled-components'
-
-import GlobalStyles from './index.css'
 import {StoreContext} from "./store/StoreProvider";
 import {
     BrowserRouter as Router,
@@ -9,11 +7,19 @@ import {
     Route
 } from "react-router-dom";
 
+// Themes
 import {darkTheme, lightTheme} from "./utils/theme";
-import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
+
+// Pages
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Search from "./pages/Search/Search";
+
+// Components and styles
+import GlobalStyles from './index.css'
+import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import UserInfo from "./pages/UserRepos/UserInfo";
 import Footer from "./components/Footer/Footer";
+
 
 
 const App = () => {
@@ -30,6 +36,7 @@ const App = () => {
                     <Route exact path={"/"} component={Search}/>
                     <Route path={"/user/:user"} component={UserInfo}/>
                     <Route path={"/:user/:repo"} />
+                    <Route component={ErrorPage} />
                 </Switch>
                 <Footer />
             </Router>
