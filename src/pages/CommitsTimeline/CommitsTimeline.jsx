@@ -43,7 +43,7 @@ const CommitsTimeline = ({match}) => {
                     <GitRepositoryIcon />
                     <Link to={`/user/${username}`}>{username}</Link> / {repo}
                 </h1>
-                <p>Commits: <strong>{allCommits}</strong></p>
+                {/*<p>Commits: <strong>{allCommits}</strong></p>*/}
             </RepoInfo>
             <Timeline
                 repo={repo}
