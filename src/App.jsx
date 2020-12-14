@@ -21,6 +21,8 @@ import GlobalStyles from './index.css'
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import UserInfo from "./pages/UserRepos/UserInfo";
 import Footer from "./components/Footer/Footer";
+import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
+import {Container} from "./pages/UserRepos/UserInfo.css";
 
 
 
@@ -41,6 +43,7 @@ const App = () => {
                     <Route component={ErrorPage} />
                 </Switch>
                 <Footer />
+                <ScrollUpButton />
             </Router>
         </ThemeProvider>
     );
