@@ -16,7 +16,7 @@ export const Container = styled.div`
   }
   
   & h2 {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.textSecondary};
     font-size: 2rem;
     font-family: ${({ theme }) => theme.fonts.first};
     font-weight: lighter;

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     max-width: 400px;
     background-color: ${({ theme }) => theme.colors.text};
     border-radius: ${({ theme }) => theme.spacing.xs}px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: ${({ theme }) => theme.defaultShadow};
     outline: none;
     
     ul {

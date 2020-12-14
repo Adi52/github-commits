@@ -50,6 +50,7 @@ const CommitsTimeline = ({match}) => {
                 username={username}
             />
 
+
         </Wrapper>
     );
 };

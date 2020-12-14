@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {lighten} from 'polished'
 
 const RootButton = styled.button`
   background: none;
@@ -36,7 +35,7 @@ export const PrimaryButton = styled(RootButton)`
     
     &:hover,
     &:focus {
-      border-color: ${({theme}) => lighten(0.04, theme.colors.contrast)};
-      box-shadow: inset ${({theme}) => theme.spacing.xl * 5}px 0 0 0 ${({theme}) => lighten(0.04, theme.colors.contrast)};
+      border-color: ${({theme}) => theme.colors.lightenContrast};
+      box-shadow: inset ${({theme}) => theme.spacing.xl * 5}px 0 0 0 ${({theme}) => theme.colors.lightenContrast};
     }
 `;

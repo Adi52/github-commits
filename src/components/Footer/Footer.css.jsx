@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   justify-content: space-evenly;
 
   height: 7vh;
-  min-height: 30px;
+  min-height: 50px;
   background-color: ${({ theme }) => theme.colors.secondary};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   color: ${({ theme }) => theme.colors.textSecondary};

@@ -10,7 +10,7 @@ export const Input = styled.input`
     min-height: 50px;
     border-radius: 25px;
     padding: 0 40px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: ${({ theme }) => theme.defaultShadow};
     outline: none;
 `;
 
