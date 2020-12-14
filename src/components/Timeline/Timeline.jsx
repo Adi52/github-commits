@@ -1,4 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+
+import request from "../../helpers/request";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -6,10 +8,17 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-import request from "../../helpers/request";
+
+
+// Styles
+import {CommitIcon, GithubIcon, StartRepoIcon, Wrapper} from "./Timeline.css";
+import { ThemeContext } from 'styled-components';
+
 
 
 const Timeline = ({username, repo}) => {
+    // Use theme from ThemeProvider without styled component
+    const themeContext = useContext(ThemeContext);
 
     const [page, setPage] = useState(1);
 
@@ -28,56 +37,69 @@ const Timeline = ({username, repo}) => {
             .catch()
     }, [page])
 
-    // const commitsDisplay = commits && commits.map(commit => (
-    //     <div key={commit.node_id} style={{padding: 20}}>
-    //         <p>{commit.commit.message}</p>
-    //         <p>{commit.commit.committer.name}</p>
-    //         <p>{commit.commit.committer.date.split("T")[0]}</p>
-    //         <a href={commit.html_url} target={"_blank"}>link</a>
-    //     </div>
-    //     )
-    // )
 
     const commitsDisplay = commits && commits.map(commit => (
             <VerticalTimelineElement
-                key={commit.node_id}
+                key={commit.sha}
                 className="vertical-timeline-element--work"
-                contentStyle={{ background: 'rgb(243,14,32)', color: '#fff' }}
-                contentArrowStyle={{ borderRight: '7px solid  rgb(243,14,32)' }}
+                contentStyle={
+                    {
+                        borderRadius: `${themeContext.spacing.xs/1.5}px`,
+                        background: `${themeContext.colors.secondary}`,
+                        color: `${themeContext.colors.text}`,
+                        border: `0.5px solid ${themeContext.colors.border}`,
+                        boxShadow: `inset 0 0 0 0.5px ${themeContext.colors.border}`,
+                        // boxShadow: 'none',
+
+                    }
+                }
+                contentArrowStyle={{borderRight: `7px solid ${themeContext.colors.border}`}}
                 date={commit.commit.committer.date.split("T")[0]}
-                iconStyle={{ background: 'rgb(243,14,32)', color: '#fff' }}
-                // icon={<WorkIcon />}
+                iconStyle={
+                    {
+                        background: `${themeContext.colors.secondary}`,
+                    }}
+                icon={<CommitIcon />}
             >
                 <h3 className="vertical-timeline-element-title">{commit.commit.committer.name}</h3>
-                <p>{commit.commit.message}</p>
-                <p>See at </p>
-                <a href={commit.html_url} target={"_blank"}>github</a>
+
+                <p style={
+                    {
+                        textAlign: 'justify',
+                        color: `${themeContext.colors.textSecondary}`,
+                        overflow: 'hidden',
+                    }
+                }
+                >
+                    {commit.commit.message}
+                </p>
+
+                <p>
+                    <a href={commit.html_url} target={"_blank"}>
+                        See at github<GithubIcon/>
+                    </a>
+                </p>
             </VerticalTimelineElement>
         )
     )
 
     return (
-        <>
+        <Wrapper>
             <InfiniteScroll
                 dataLength={commits.length}
                 next={() => setPage(page + 1)}
                 hasMore={loadMore}
-                loader={<h4>Loading...</h4>}
-                endMessage={
-                    <p style={{ textAlign: 'center' }}>
-                        <b>Yay! You have seen it all</b>
-                    </p>
-                }
+                loader={<h4></h4>}
             >
                 <VerticalTimeline>
                     {commitsDisplay}
                     <VerticalTimelineElement
-                        iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-                        // icon={<StarIcon />}
+                        iconStyle={{background: `${themeContext.colors.secondary}`}}
+                        icon={<StartRepoIcon />}
                     />
                 </VerticalTimeline>
             </InfiniteScroll>
-        </>
+        </Wrapper>
     );
 };
 
