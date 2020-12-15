@@ -11,7 +11,7 @@ import 'react-vertical-timeline-component/style.min.css';
 
 
 // Styles
-import {CommitIcon, GithubIcon, StartRepoIcon, Wrapper} from "./Timeline.css";
+import {CommitIcon, GithubIcon, LoadingIcon, StartRepoIcon, Wrapper} from "./Timeline.css";
 import { ThemeContext } from 'styled-components';
 
 
@@ -27,7 +27,7 @@ const Timeline = ({username, repo}) => {
 
 
     useEffect(() => {
-        request.get(`/repos/${username}/${repo}/commits?per_page=10&page=${page}`)
+        request.get(`/repos/${username}/${repo}/commits?per_page=6&page=${page}`)
             .then((response) => {
                 setCommits([...commits, ...response.data]);
                 if (response.data.length === 0) {
@@ -95,7 +95,7 @@ const Timeline = ({username, repo}) => {
                     {commitsDisplay}
                     <VerticalTimelineElement
                         iconStyle={{background: `${themeContext.colors.secondary}`}}
-                        icon={<StartRepoIcon />}
+                        icon={loadMore ? <LoadingIcon/> : <StartRepoIcon />}
                     />
                 </VerticalTimeline>
             </InfiniteScroll>
