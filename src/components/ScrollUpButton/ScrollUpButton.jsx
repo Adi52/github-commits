@@ -6,7 +6,7 @@ import {ScrollIcon} from "./ScrollUpButton.css";
 
 const ScrollUpButton = () => {
     return (
-        <ScrollToTop showUnder={160}>
+        <ScrollToTop showUnder={160} style={{bottom: '7vh'}}>
             <ScrollIcon />
         </ScrollToTop>
     )
