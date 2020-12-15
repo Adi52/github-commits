@@ -10,6 +10,11 @@ export const Container = styled.div`
   margin-top: ${({ theme }) => theme.spacing.sm}px;
   margin-bottom: ${({ theme }) => theme.spacing.xl}px;
   min-height: ${({ theme }) => theme.minSectionHeight};
-
-
 `;
+
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: ${({ theme }) => theme.spacing.xl}px
+`

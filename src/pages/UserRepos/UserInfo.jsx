@@ -13,8 +13,8 @@ const UserInfo = ({match}) => {
 
     const [userInfo, setUserInfo] = useState({});
     const [reposList, setReposList] = useState({});
-    
-    
+
+
     useEffect(() => {
         request.get(`/users/${username}`)
             .then((response) => {
@@ -24,15 +24,6 @@ const UserInfo = ({match}) => {
                 } else {
                     // When username is valid - fetch user repos
                     setUserInfo(response.data);
-                    request.get(`/users/${username}/repos?per_page=1000`)
-                        .then((response) => {
-                            if (response && response.status === 404) {
-                                console.clear();
-                            } else {
-                                setReposList(response.data);
-                            }
-                        })
-                        .catch()
                 }
             })
             .catch()
@@ -47,7 +38,7 @@ const UserInfo = ({match}) => {
     return (
         <Container>
             <UserInfoCard userInfo={userInfo} />
-            <UserRepos reposList={reposList} />
+            <UserRepos username={username} />
         </Container>
     )
 }
