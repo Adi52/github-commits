@@ -3,7 +3,7 @@ import request from "../../helpers/request";
 import UserInfoCard from "../../components/UserInfoCard/UserInfoCard";
 import {Container} from "./UserInfo.css";
 import UserRepos from "../../components/UserRepos/UserRepos";
-
+import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 
 
 
@@ -40,6 +40,9 @@ const UserInfo = ({match}) => {
 
     }, [username])
 
+    useEffect(() => {
+        document.title = `${capitalizeFirstLetter(username)} - githubCommits`;
+    }, [username])
 
     return (
         <Container>

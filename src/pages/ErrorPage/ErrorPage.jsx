@@ -1,9 +1,14 @@
-import React from 'react';
-import {ErrorIcon, Wrapper} from "./ErrorPage.css";
+import React, {useEffect} from 'react';
+import {Wrapper} from "./ErrorPage.css";
 import Button from "../../components/Button/Button";
 
 
 const ErrorPage = () => {
+
+    useEffect(() => {
+        document.title = 'Page not found - githubCommits';
+    }, [])
+
 
     return (
         <Wrapper>
