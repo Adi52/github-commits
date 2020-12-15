@@ -3,12 +3,12 @@ import {Wrapper} from "./Suggestions.css";
 
 const Suggestions = ({ results, setTarget, showSuggestions }) => {
 
-    const userNames = results ? results.map(user => (
+    const userNames = results ? results.map(({id, login}) => (
         <li
-            key={user.id}
-            onClick={() => setTarget(user.login) }
+            key={id}
+            onClick={() => setTarget(login) }
         >
-            {user.login}
+            {login}
         </li>
     )) : '';
 

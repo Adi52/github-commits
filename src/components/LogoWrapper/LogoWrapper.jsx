@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Container, Logo, Wrapper} from './LogoWrapper.css'
+import {Container, Logo} from './LogoWrapper.css'
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import {useHistory} from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const LogoWrapper = () => {
     return (
         <Container>
             <Logo onClick={() => history.push('/')}>
-                <div></div>
+                <div> </div>
                 <h1>githubCommits</h1>
             </Logo>
             <ThemeSwitcher />

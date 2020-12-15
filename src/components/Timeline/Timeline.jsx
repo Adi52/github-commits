@@ -46,9 +46,9 @@ const Timeline = ({username, repo}) => {
     }, [page])
 
 
-    const commitsDisplay = commits && commits.map(commit => (
+    const commitsDisplay = commits && commits.map(({commit, html_url, sha}) => (
             <VerticalTimelineElement
-                key={commit.sha}
+                key={sha}
                 className="vertical-timeline-element--work"
                 contentStyle={
                     {
@@ -62,14 +62,14 @@ const Timeline = ({username, repo}) => {
                     }
                 }
                 contentArrowStyle={{borderRight: `7px solid ${themeContext.colors.border}`}}
-                date={moment(commit.commit.committer.date).format('MMMM Do YYYY, h:mm:ss a')}
+                date={moment(commit.committer.date).format('MMMM Do YYYY, h:mm:ss a')}
                 iconStyle={
                     {
                         background: `${themeContext.colors.secondary}`,
                     }}
                 icon={<CommitIcon />}
             >
-                <h3 className="vertical-timeline-element-title">{commit.commit.committer.name}</h3>
+                <h3 className="vertical-timeline-element-title">{commit.committer.name}</h3>
 
                 <p style={
                     {
@@ -79,11 +79,11 @@ const Timeline = ({username, repo}) => {
                     }
                 }
                 >
-                    {commit.commit.message}
+                    {commit.message}
                 </p>
 
                 <p>
-                    <a href={commit.html_url} target={"_blank"}>
+                    <a href={html_url} target={"_blank"} rel={"noopener noreferrer"}>
                         See at github<GithubIcon/>
                     </a>
                 </p>
@@ -97,7 +97,7 @@ const Timeline = ({username, repo}) => {
                 dataLength={commits.length}
                 next={() => setPage(page + 1)}
                 hasMore={loadMore}
-                loader={<h4></h4>}
+                loader={<h4> </h4>}
             >
                 <VerticalTimeline>
                     {commitsDisplay}

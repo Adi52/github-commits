@@ -5,7 +5,7 @@ import {Input, Buttons} from "./InputSearch.css";
 import request from "../../helpers/request";
 import Button from "../Button/Button";
 import Suggestions from './subcomponents/Suggestions/Suggestions';
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 const InputSearch = () => {

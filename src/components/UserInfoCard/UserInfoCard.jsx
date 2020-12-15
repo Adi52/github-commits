@@ -6,17 +6,17 @@ const UserInfoCard = ({userInfo}) => {
 
     return (
         <Container>
-            <UserImage src={userInfo.avatar_url} />
+            <UserImage src={userInfo["avatar_url"]} />
 
             <UserName>
                 {userInfo.name}
             </UserName>
 
             <UserNick
-                href={userInfo.html_url}
+                href={userInfo["html_url"]}
                 target={"_blank"}
             >
-                {userInfo.login}
+                {userInfo["login"]}
             </UserNick>
         </Container>
     );

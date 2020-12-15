@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@styled-icons/boxicons-regular": "^10.18.0",
     "@styled-icons/remix-fill": "^10.18.0",
+    "@styled-icons/remix-line": "^10.18.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
+    "@types/react": "^17.0.0",
     "axios": "^0.21.0",
     "moment": "^2.29.1",
     "polished": "^4.0.5",
@@ -49,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@styled-icons/entypo": "^10.18.0",
     "@styled-icons/ionicons-solid": "^10.18.0",
     "@styled-icons/octicons": "^10.20.0"
   }
