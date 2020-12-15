@@ -3,6 +3,10 @@ import React, {useContext, useEffect, useState} from 'react';
 import request from "../../helpers/request";
 
 import InfiniteScroll from "react-infinite-scroll-component";
+import moment from 'moment'
+// import 'moment/locale/en'
+import 'moment/locale/pl'
+import 'moment/locale/en-gb'
 
 // Timeline
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
@@ -14,6 +18,10 @@ import 'react-vertical-timeline-component/style.min.css';
 import {CommitIcon, GithubIcon, LoadingIcon, StartRepoIcon, Wrapper} from "./Timeline.css";
 import { ThemeContext } from 'styled-components';
 
+
+// Here u can change language in future
+// pl / en-gb
+moment.locale('');
 
 
 const Timeline = ({username, repo}) => {
@@ -54,7 +62,7 @@ const Timeline = ({username, repo}) => {
                     }
                 }
                 contentArrowStyle={{borderRight: `7px solid ${themeContext.colors.border}`}}
-                date={commit.commit.committer.date.split("T")[0]}
+                date={moment(commit.commit.committer.date).format('MMMM Do YYYY, h:mm:ss a')}
                 iconStyle={
                     {
                         background: `${themeContext.colors.secondary}`,
