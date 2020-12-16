@@ -12,7 +12,7 @@ const UserInfo = ({match}) => {
     const username = match.params.user;
 
     const [userInfo, setUserInfo] = useState({});
-    const [reposList, setReposList] = useState({});
+
 
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 # TODO
 
-* Maybe add infinite scroll to user repos?
+* ~~Maybe add infinite scroll to user repos?~~
 * Catch errors when fetch data
 * Page invalid user
 * ~~Timeline with commits~~

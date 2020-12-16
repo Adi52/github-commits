@@ -38,7 +38,7 @@ const UserRepos = ({username}) => {
     const repos = reposList && reposList.map(repo => <UserRepoTile key={repo.id} repo={repo} />)
 
 
-    console.log(themeContext.colors.contrast)
+
 
     return (
             <InfiniteScroll
