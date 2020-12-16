@@ -9,10 +9,22 @@ export const Container = styled.div`
 `;
 
 
-export const UserImage = styled.img`
+export const UserImage = styled.div`
   border-radius: 50%;
   border: 1px solid ${({ theme }) => theme.colors.border};
   width: ${({ theme }) => theme.spacing.xl*5}px;
+  height: ${({ theme }) => theme.spacing.xl*5}px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.main};
+  
+  img {
+    width: ${({ theme }) => theme.spacing.xl*5}px;
+    height: ${({ theme }) => theme.spacing.xl*5}px;
+    display: ${props => props.loaded ? "block" : "none"};
+  }
 `;
 
 export const UserName = styled.a`
