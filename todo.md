@@ -3,6 +3,7 @@
 * ~~Maybe add infinite scroll to user repos?~~
 * Catch errors when fetch data
 * Page invalid user
+* 404 page when repo doesn't exist
 * ~~Timeline with commits~~
 * RWD
 * Loading indicators

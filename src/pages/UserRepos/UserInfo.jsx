@@ -4,6 +4,8 @@ import UserInfoCard from "../../components/UserInfoCard/UserInfoCard";
 import {Container} from "./UserInfo.css";
 import UserRepos from "../../components/UserRepos/UserRepos";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
+import Redirect, {Link} from "react-router-dom";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 
@@ -20,7 +22,8 @@ const UserInfo = ({match}) => {
             .then((response) => {
                 if (response && response.status === 404) {
                     console.clear();
-                    setUserInfo('Invalid username!');
+                    setUserInfo(false);
+                    // <Redirect to="/404" />
                 } else {
                     // When username is valid - fetch user repos
                     setUserInfo(response.data);
@@ -35,12 +38,12 @@ const UserInfo = ({match}) => {
         document.title = `${capitalizeFirstLetter(username)} - githubCommits`;
     }, [username])
 
-    return (
+    return userInfo ? (
         <Container>
             <UserInfoCard userInfo={userInfo} />
             <UserRepos username={username} />
         </Container>
-    )
+    ) : <ErrorPage variant={'user'} username={username}/>
 }
 
 export default UserInfo;

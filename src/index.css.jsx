@@ -5,6 +5,8 @@ export default createGlobalStyle`
     ${normalize}
     * {
       box-sizing: border-box;
+      margin-block-end: 0;
+      margin-block-start: 0;
     }
     
     // custom scrollbar
