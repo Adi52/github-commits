@@ -2,9 +2,11 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Container, LoaderContainer} from "./UserRepos.css";
 import UserRepoTile from "./subcomponents/UserRepo/UserRepo";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {ImpulseSpinner} from "react-spinners-kit";
 import request from "../../helpers/request";
 import {ThemeContext} from "styled-components";
+import {PropagateLoader} from "react-spinners";
+
+const fetchPerPage = 6;
 
 const UserRepos = ({username}) => {
 
@@ -16,14 +18,14 @@ const UserRepos = ({username}) => {
 
 
     useEffect(() => {
-        request.get(`/users/${username}/repos?per_page=6&page=${page}`)
+        request.get(`/users/${username}/repos?per_page=${fetchPerPage}&page=${page}`)
             .then((response) => {
                 if (response && response.status === 404) {
                     console.clear();
                 } else {
                     setReposList([...reposList, ...response.data]);
 
-                    if (response.data.length === 0) {
+                    if (response.data.length < fetchPerPage) {
                         setLoadMore(false);
                     }
                 }
@@ -40,17 +42,25 @@ const UserRepos = ({username}) => {
 
 
 
-    return (
+    return repos.length === 0 ?
+        (
+            <LoaderContainer>
+                <PropagateLoader
+                    size={15}
+                    color={themeContext.colors.contrast}
+                    loading={true}
+                />
+            </LoaderContainer>
+        ) : (
             <InfiniteScroll
                 dataLength={repos.length}
                 next={() => setPage(page + 1)}
                 hasMore={loadMore}
                 loader={
                     <LoaderContainer>
-                        <ImpulseSpinner
-                            size={30}
-                            frontColor={themeContext.colors.contrast}
-                            backColor={themeContext.colors.secondary}
+                        <PropagateLoader
+                            size={15}
+                            color={themeContext.colors.contrast}
                             loading={true}
                         />
                     </LoaderContainer>
