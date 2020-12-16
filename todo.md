@@ -2,11 +2,11 @@
 
 * ~~Maybe add infinite scroll to user repos?~~
 * Catch errors when fetch data
-* Page invalid user
-* 404 page when repo doesn't exist
+* ~~Page invalid user~~
+* ~~404 page when repo doesn't exist~~
 * ~~Timeline with commits~~
 * RWD
-* Loading indicators
+* ~~Loading indicators~~
 * Use memo optimizations
 * Change my input <Suggestions/> to autocomplete (Material-UI)
 * Add margin top to search input (too close text)
