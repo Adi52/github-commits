@@ -8,17 +8,16 @@ export const Tile = styled.div`
   
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   
   border-radius: ${({ theme }) => theme.spacing.xs/1.5}px;
   background-color: ${({ theme }) => theme.colors.secondary};
   padding: ${({ theme }) => theme.spacing.sm}px;
   margin-top: 2%;
   border: 1px solid ${({ theme }) => theme.colors.border};
-
+  
+  min-height: 120px;
 `;
-
-
 
 export const RepositoryIcon = styled(GitRepository)`
     width: 20px;
@@ -46,10 +45,11 @@ export const Description = styled.p`
   font-size: 0.8rem;
   color: ${({ theme }) => theme.colors.textSecondary};
   font-weight: 600;
-
+  margin-top: ${({ theme }) => theme.spacing.xs}px;
 `;
 
 export const Language = styled.div`
+  margin-top: auto; // TRICK! thanks it i can position it at bottom :D
   display: flex;
   flex-direction: row;
   align-items: center;
