@@ -200,10 +200,15 @@ const colors = {
     "Dockerfile": "#384d54",
     "Nginx": "#384d54",
     "XSLT": "#eb8ceb",
+    "Hack": "#8a7d8c",
 }
 
 const githubLanguageColor = (language) => {
-    return colors[language];
+    if (colors[language]) {
+        return colors[language];
+    } else {
+        return "#3c3d3c";
+    }
 }
 
 export default githubLanguageColor;

@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-content: flex-start;
   margin-top: ${({ theme }) => theme.spacing.sm}px;
   margin-bottom: ${({ theme }) => theme.spacing.xl}px;
-  min-height: ${({ theme }) => theme.minSectionHeight};
+  min-width: 900px;
 `;
 
 

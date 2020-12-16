@@ -28,7 +28,7 @@ export const lightTheme = {
         contrast: '#555555',
         lightenContrast: lighten(0.08, '#555555'),
         text: '#313131',
-        textSecondary: '#6b6b6b',
+        textSecondary: '#565656',
     },
 }
 
