@@ -40,6 +40,7 @@ const Timeline = ({username, repo}) => {
                 }
             })
             .catch()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page])
 
     const commitsDisplay = commits && commits.map(({commit, html_url, sha}) => (

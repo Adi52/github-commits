@@ -30,6 +30,7 @@ const UserRepos = ({username}) => {
                 }
             })
             .catch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page]);
 
     const repos = reposList && reposList.map(repo => <UserRepoTile key={repo.id} repo={repo} />)
