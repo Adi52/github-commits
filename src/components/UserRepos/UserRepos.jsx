@@ -17,7 +17,7 @@ const UserRepos = ({username}) => {
     const [loadMore, setLoadMore] = useState(true);
 
     useEffect(() => {
-        request.get(`/asdusers/${username}/repos?per_page=${fetchPerPage}&page=${page}`)
+        request.get(`/users/${username}/repos?per_page=${fetchPerPage}&page=${page}`)
             .then((response) => {
                 if (response && response.status === 404) {
                     console.log("Server error, try again later!")
