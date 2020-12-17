@@ -30,11 +30,14 @@ const InputSearch = () => {
                             response.data.items.map(item => options.push(item['login']));
                             setOptions(options);
                         } else {
-                            console.log('suggestions error (github API)')
+                            console.log("Server error, try again later!")
                         }
                     }
                 })
-                .catch();
+                .catch(error => {
+                    console.log("Server error, try again later!");
+                    console.log(error);
+                });
         }
         return () => {
             active = false;

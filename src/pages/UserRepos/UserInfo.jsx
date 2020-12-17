@@ -15,14 +15,16 @@ const UserInfo = ({match}) => {
         request.get(`/users/${username}`)
             .then((response) => {
                 if (response && response.status === 404) {
-                    console.clear();
                     setUserInfo(false);
-                    // <Redirect to="/404" />
                 } else {
                     setUserInfo(response.data);
                 }
             })
-            .catch()
+            .catch(error => {
+                console.log("Server error, try again later!");
+                console.log(error);
+                setUserInfo(false);
+            })
     }, [username])
 
     useEffect(() => {

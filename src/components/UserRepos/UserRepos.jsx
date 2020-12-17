@@ -17,10 +17,10 @@ const UserRepos = ({username}) => {
     const [loadMore, setLoadMore] = useState(true);
 
     useEffect(() => {
-        request.get(`/users/${username}/repos?per_page=${fetchPerPage}&page=${page}`)
+        request.get(`/asdusers/${username}/repos?per_page=${fetchPerPage}&page=${page}`)
             .then((response) => {
                 if (response && response.status === 404) {
-                    console.clear();
+                    console.log("Server error, try again later!")
                 } else {
                     setReposList([...reposList, ...response.data]);
 
@@ -29,7 +29,7 @@ const UserRepos = ({username}) => {
                     }
                 }
             })
-            .catch()
+            .catch(error => console.log(error))
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page]);
 
