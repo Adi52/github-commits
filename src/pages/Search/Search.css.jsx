@@ -6,5 +6,4 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   min-height: ${({ theme }) => theme.minSectionHeight};
-
 `;

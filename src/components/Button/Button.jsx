@@ -33,6 +33,7 @@ const Button = ({ variant, children, ...props }) => {
         </>
     );
 };
+
 Button.propTypes = {
     variant: PropTypes.oneOf(['primary', 'regular'])
 }

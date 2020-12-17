@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import InputSearch from "../../components/InputSearch/InputSearch";
+
 import {Container} from './Search.css';
 import Titles from "../../components/Titles/Titles";
+import InputSearch from "../../components/InputSearch/InputSearch";
 
 
 const Search = () => {
@@ -18,6 +19,7 @@ const Search = () => {
                 h2={"And view all user commits as timeline"}
             />
             <InputSearch />
+
         </Container>
     )
 }

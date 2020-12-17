@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  flex-basis: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   text-align: center;
+  padding: ${({theme}) => theme.spacing.xl*2}px;
     
   & h1 {
     color: ${({ theme }) => theme.colors.text};

@@ -16,5 +16,7 @@ export const Container = styled.div`
 export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: ${({ theme }) => theme.spacing.xl}px
+  margin-bottom: ${({ theme }) => theme.spacing.xl}px;
+  margin-top: ${({ theme }) => theme.spacing.xl}px;
+  transform: translateX(-8px); // fix bug with loader :(
 `

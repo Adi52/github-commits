@@ -1,103 +1,134 @@
-import React, {useEffect, useRef, useState} from 'react';
-
-
-import {Input, Buttons} from "./InputSearch.css";
+import React, {useEffect} from 'react';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import CircularProgress from "@material-ui/core/CircularProgress";
 import request from "../../helpers/request";
-import Button from "../Button/Button";
-import Suggestions from './subcomponents/Suggestions/Suggestions';
 import { useHistory } from "react-router-dom";
 
 
+
+import {AutocompleteStyles, Buttons, Form} from "./InputSearch.css";
+import Button from "../Button/Button";
+
+
+
+
+
+
 const InputSearch = () => {
-    const [userInput, setUserInput] = useState('');
-    const [results, setResults] = useState([]);
-    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    const [options, setOptions] = React.useState([]);
+    const loading = open && options.length === 1;
 
-    const inputRef = useRef();
+    const [userInput, setUserInput] = React.useState('');
 
-    const history = useHistory();
+        const history = useHistory();
 
-    const handleClickOutsideInput = e => {
-        if (inputRef.current && !inputRef.current.contains(e.target)) {
-            setShowSuggestions(false);
+
+    useEffect(() => {
+        let active = true;
+
+
+        if (userInput) {
+            request.get(`/search/users?q=${userInput}&per_page=5`)
+
+                .then((response) => {
+                    if (active) {
+                        if (response.status !== 403) {
+                            let options = [];
+                            response.data.items.map(item => options.push(item['login']));
+                            setOptions(options);
+                        } else {
+                            console.log('suggestions error (github API)')
+                        }
+                    }
+                })
+                .catch();
         }
-    };
+        return () => {
+            active = false;
+        }
+
+    }, [userInput])
+
+    React.useEffect(() => {
+        if (!open) {
+            setOptions([]);
+        }
+    }, [open]);
+
 
     const handleChangeInput = (e) => {
         setUserInput(e.target.value);
-        setShowSuggestions(true);
     };
 
-    const setTarget = (user) => {
-        setUserInput(user);
-        setResults([]);
-        setShowSuggestions(false);
-    }
+    // const classes = useStyles();
 
-    useEffect(() => {
-        if (userInput.length > 1
-            && userInput
-            && showSuggestions) {
-                // fetch user list!
-                request.get(`/search/users?q=${userInput}&per_page=3`)
-
-                    .then((response) => {
-                        setResults(response.data.items)
-                    })
-                    .catch();
-        } else {
-            setShowSuggestions(false);
-            setResults([]);
-        }
-    }, [showSuggestions, userInput])
-
-    useEffect(() => {
-        // Hide suggestions when user click outside input
-        document.addEventListener("click", handleClickOutsideInput);
-
-        return () => {
-            document.removeEventListener("click", handleClickOutsideInput);
-        };
-    });
-
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            if (userInput.length > 0) {
-                history.push(`user/${userInput}`)
-            } else {
-                history.push('/user/adi52');
-            }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (userInput.length > 0) {
+            history.push(`user/${userInput}`)
         }
     }
 
     return (
-        <>
-            <Input
-                type={"text"}
-                placeholder={"Username"}
-                value={userInput}
-                onChange={handleChangeInput}
-                ref={inputRef}
-                onFocus={() => setShowSuggestions(true)}
-                onKeyDown={handleKeyDown}
-            />
+            <Form onSubmit={handleSubmit}>
+                <AutocompleteStyles>
+                    <Autocomplete
+                        id="github-users-api"
+                        style={{ width: 700 }}
+                        // classes={classes}
+                        open={open}
+                        onOpen={() => {
+                            setOpen(true);
+                        }}
+                        onClose={() => {
+                            setOpen(false);
+                        }}
+                        getOptionSelected={(option, value) => {
+                            setUserInput(value);
+                            return option.name === value.name
+                        }}
+                        getOptionLabel={(option) => option}
+                        options={options}
+                        loading={loading}
+                        renderInput={(params) => (
+                            <TextField
+                                onChange={handleChangeInput}
+                                {...params}
+                                label="Username"
+                                variant="outlined"
+                                InputProps={{
+                                    ...params.InputProps,
+                                    endAdornment: (
+                                        <React.Fragment>
+                                            {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                                            {params.InputProps.endAdornment}
+                                        </React.Fragment>
+                                    ),
+                                }}
+                            />
+                        )}
+                    />
+                </AutocompleteStyles>
 
-            <Suggestions
-                results={results}
-                setTarget={setTarget}
-                showSuggestions={showSuggestions}
-            />
+                <Buttons>
+                    <Button variant={"regular"} to={'/user/adi52'} type="button">
+                        Example
+                    </Button>
 
-            <Buttons>
-                <Button variant={"regular"} to={'/user/adi52'}>
-                    Example
-                </Button>
-                <Button variant={"primary"} to={userInput ? `user/${userInput}` : ''}>
-                    Search
-                </Button>
-            </Buttons>
-        </>
+                    <Button variant={"primary"} type="submit">
+                        Search
+                    </Button>
+                </Buttons>
+            </Form>
+
     );
-};
+}
 
 export default InputSearch;
+
+
+
+
+
