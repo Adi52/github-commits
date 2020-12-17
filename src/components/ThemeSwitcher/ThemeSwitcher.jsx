@@ -1,11 +1,11 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useContext} from 'react';
 import {StoreContext} from "../../store/StoreProvider";
 import {Switcher} from "./ThemeSwitcher.css";
 
 const ThemeSwitcher = () => {
     const {theme, setTheme} = useContext(StoreContext);
 
-    const switchTheme = useMemo(() => {
+    const switchTheme = () => {
         setTheme(() => {
             if (theme === 'dark') {
                 return 'light';
@@ -13,7 +13,7 @@ const ThemeSwitcher = () => {
                 return 'dark';
             }
         })
-    }, [setTheme, theme])
+    }
 
     return (
         <Switcher>
