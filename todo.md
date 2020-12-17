@@ -8,6 +8,7 @@
 * RWD
 * ~~Loading indicators~~
 * Use memo optimizations
-* Change my input <Suggestions/> to autocomplete (Material-UI)
-* Add margin top to search input (too close text)
+* ~~Change my input <OldSuggestions/> to autocomplete (Material-UI)~~
+* ~~Add margin top to search input (too close text)~~
 * Add animations between pages (AWESOME!)
+* Add language change

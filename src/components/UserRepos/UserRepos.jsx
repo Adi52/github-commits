@@ -16,7 +16,6 @@ const UserRepos = ({username}) => {
     const [reposList, setReposList] = useState([]);
     const [loadMore, setLoadMore] = useState(true);
 
-
     useEffect(() => {
         request.get(`/users/${username}/repos?per_page=${fetchPerPage}&page=${page}`)
             .then((response) => {
@@ -33,14 +32,7 @@ const UserRepos = ({username}) => {
             .catch()
     }, [page]);
 
-
-
-
-
     const repos = reposList && reposList.map(repo => <UserRepoTile key={repo.id} repo={repo} />)
-
-
-
 
     return repos.length === 0 ?
         (

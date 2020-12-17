@@ -9,7 +9,6 @@ const UserInfoCard = ({userInfo}) => {
     const themeContext = useContext(ThemeContext);
     const [imageLoaded, setImageLoaded] = useState(false);
 
-
     return (
         <Container>
             <UserImage loaded={imageLoaded}>
@@ -23,13 +22,10 @@ const UserInfoCard = ({userInfo}) => {
                     color={themeContext.colors.contrast}
                     loading={!imageLoaded}
                 />
-
             </UserImage>
-
             <UserName>
                 {userInfo.name}
             </UserName>
-
             <UserNick
                 href={userInfo["html_url"]}
                 target={"_blank"}

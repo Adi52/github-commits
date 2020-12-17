@@ -6,13 +6,10 @@ import UserRepos from "../../components/UserRepos/UserRepos";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 import ErrorPage from "../ErrorPage/ErrorPage";
 
-
 const UserInfo = ({match}) => {
     const username = match.params.user;
 
     const [userInfo, setUserInfo] = useState({});
-
-
 
     useEffect(() => {
         request.get(`/users/${username}`)
@@ -26,8 +23,6 @@ const UserInfo = ({match}) => {
                 }
             })
             .catch()
-
-
     }, [username])
 
     useEffect(() => {

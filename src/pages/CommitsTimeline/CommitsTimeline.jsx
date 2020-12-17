@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import Timeline from "../../components/Timeline/Timeline";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 
-
 const CommitsTimeline = ({match}) => {
     const repo = match.params.repo;
     const username = match.params.user;
@@ -32,21 +31,4 @@ const CommitsTimeline = ({match}) => {
     );
 };
 
-
 export default CommitsTimeline;
-
-
-
-
-// useEffect(() => {
-//     // Get user info (to UserInfoCard)
-//     request.get(`/users/${username}`)
-//         .then((response) => {
-//             if (response && response.status === 404) {
-//                 console.clear();
-//             } else {
-//                 setUserInfo(response.data);
-//             }
-//         })
-//         .catch()
-// }, [username]);

@@ -27,12 +27,9 @@ moment.locale('');
 const Timeline = ({username, repo}) => {
     // Use theme from ThemeProvider without styled component
     const themeContext = useContext(ThemeContext);
-
     const [page, setPage] = useState(1);
-
     const [commits, setCommits] = useState([]);
     const [loadMore, setLoadMore] = useState(true);
-
 
     useEffect(() => {
         request.get(`/repos/${username}/${repo}/commits?per_page=6&page=${page}`)
@@ -44,7 +41,6 @@ const Timeline = ({username, repo}) => {
             })
             .catch()
     }, [page])
-
 
     const commitsDisplay = commits && commits.map(({commit, html_url, sha}) => (
             <VerticalTimelineElement
@@ -58,7 +54,6 @@ const Timeline = ({username, repo}) => {
                         border: `0.5px solid ${themeContext.colors.border}`,
                         boxShadow: `inset 0 0 0 0.5px ${themeContext.colors.border}`,
                         // boxShadow: 'none',
-
                     }
                 }
                 contentArrowStyle={{borderRight: `7px solid ${themeContext.colors.border}`}}
@@ -66,11 +61,11 @@ const Timeline = ({username, repo}) => {
                 iconStyle={
                     {
                         background: `${themeContext.colors.secondary}`,
-                    }}
+                    }
+                }
                 icon={<CommitIcon />}
             >
                 <h3 className="vertical-timeline-element-title">{commit.committer.name}</h3>
-
                 <p style={
                     {
                         textAlign: 'justify',
@@ -81,7 +76,6 @@ const Timeline = ({username, repo}) => {
                 >
                     {commit.message}
                 </p>
-
                 <p>
                     <a href={html_url} target={"_blank"} rel={"noopener noreferrer"}>
                         See at github<GithubIcon/>

@@ -5,15 +5,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import request from "../../helpers/request";
 import { useHistory } from "react-router-dom";
 
-
-
 import {AutocompleteStyles, Buttons, Form} from "./InputSearch.css";
 import Button from "../Button/Button";
-
-
-
-
-
 
 const InputSearch = () => {
     const [open, setOpen] = React.useState(false);
@@ -24,10 +17,8 @@ const InputSearch = () => {
 
         const history = useHistory();
 
-
     useEffect(() => {
         let active = true;
-
 
         if (userInput) {
             request.get(`/search/users?q=${userInput}&per_page=5`)
@@ -61,8 +52,6 @@ const InputSearch = () => {
     const handleChangeInput = (e) => {
         setUserInput(e.target.value);
     };
-
-    // const classes = useStyles();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -122,13 +111,7 @@ const InputSearch = () => {
                     </Button>
                 </Buttons>
             </Form>
-
     );
 }
 
 export default InputSearch;
-
-
-
-
-

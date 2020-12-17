@@ -29,14 +29,14 @@ export const Switcher = styled.div`
     } 
         
     label span {
-      font-size: 13px;
+        font-size: 13px;
     }
-        
+    
     input:checked + label::after { 
-      left : 20px;  
+        left : 20px;  
     } 
-       
+    
     input {  
-      display : none; 
+        display : none; 
     } 
 `;

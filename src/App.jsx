@@ -15,15 +15,12 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Search from "./pages/Search/Search";
 import CommitsTimeline from "./pages/CommitsTimeline/CommitsTimeline";
 
-
 // Components and styles
 import GlobalStyles from './index.css'
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import UserInfo from "./pages/UserRepos/UserInfo";
 import Footer from "./components/Footer/Footer";
 import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
-
-
 
 
 const App = () => {

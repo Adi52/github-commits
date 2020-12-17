@@ -4,8 +4,6 @@ import {Description, Language, LanguageColor, RepositoryIcon, Tile, Title} from 
 
 import githubLanguageColor from "../../../../utils/githubLanguageColor";
 
-
-
 const UserRepoTile = ({repo}) => {
 
     const {name, description, language} = repo;
@@ -15,7 +13,6 @@ const UserRepoTile = ({repo}) => {
 
     return (
         <Tile>
-
             <Title>
                 <RepositoryIcon/>
                 <Link to={`${location.pathname}/${name}`}>{name}</Link>
