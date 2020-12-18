@@ -20,10 +20,20 @@ export const UserImage = styled.div`
     justify-content: center;
     background-color: ${({ theme }) => theme.colors.main};
     
+    @media (${({ theme }) => theme.device.mobileM}) {
+        width: ${({ theme }) => theme.spacing.xl*4}px;
+        height: ${({ theme }) => theme.spacing.xl*4}px;
+    }  
+    
     img {
         width: ${({ theme }) => theme.spacing.xl*5}px;
         height: ${({ theme }) => theme.spacing.xl*5}px;
         display: ${props => props.loaded ? "block" : "none"};
+        
+        @media (${({ theme }) => theme.device.mobileM}) {
+            width: ${({ theme }) => theme.spacing.xl*4}px;
+            height: ${({ theme }) => theme.spacing.xl*4}px;
+        }  
     }
 `;
 

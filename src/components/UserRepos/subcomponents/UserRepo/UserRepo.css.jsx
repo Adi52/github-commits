@@ -17,7 +17,18 @@ export const Tile = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.border};
     
     min-height: 120px;
-    //min-width: 49%;
+    
+    @media (${({ theme }) => theme.device.tablet}) {
+        max-width: 49%;
+    }  
+    
+    @media (${({ theme }) => theme.device.mobileL}) {
+        flex-basis: 96%;
+        max-width: 96%;
+        margin-left: auto;
+        margin-right: auto;
+    }  
+    
 `;
 
 export const RepositoryIcon = styled(GitRepository)`
@@ -35,6 +46,11 @@ export const Title = styled.div`
         color: ${({ theme }) => theme.colors.text};
         font-weight: bold;
         
+        @media (${({ theme }) => theme.device.tablet}) {
+            word-wrap: break-word;
+            max-width: 90%;
+        }  
+        
         :hover {
         text-decoration: underline;
         }
@@ -47,6 +63,10 @@ export const Description = styled.p`
     color: ${({ theme }) => theme.colors.textSecondary};
     font-weight: normal !important;
     margin: ${({ theme }) => theme.spacing.xs}px 0;
+    
+    @media (${({ theme }) => theme.device.tablet}) {
+        word-wrap: break-word;
+    }  
 `;
 
 export const Language = styled.div`

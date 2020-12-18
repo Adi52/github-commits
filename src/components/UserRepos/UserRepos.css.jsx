@@ -10,6 +10,17 @@ export const Container = styled.div`
     margin-top: ${({ theme }) => theme.spacing.sm}px;
     margin-bottom: ${({ theme }) => theme.spacing.xl}px;
     min-width: 900px;
+    
+    @media (${({ theme }) => theme.device.tablet}) {
+        min-width: 700px;
+        max-width: 700px;
+    }  
+    
+    @media (${({ theme }) => theme.device.mobileL}) {
+        min-width: 100vw;
+        max-width: 100vw;
+    }  
+    
 `;
 
 

@@ -6,7 +6,7 @@ import request from "../../helpers/request";
 import {ThemeContext} from "styled-components";
 import {PropagateLoader} from "react-spinners";
 
-const fetchPerPage = 6;
+const fetchPerPage = 14;
 
 const UserRepos = ({username}) => {
 
@@ -30,8 +30,8 @@ const UserRepos = ({username}) => {
                 }
             })
             .catch(error => console.log(error))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [page]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [page, username]);
 
     const repos = reposList && reposList.map(repo => <UserRepoTile key={repo.id} repo={repo} />)
 
