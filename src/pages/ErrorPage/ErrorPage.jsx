@@ -13,16 +13,15 @@ const ErrorPage = (props) => {
 
     switch(props.variant) {
         case "user": {
-            message = <h3>User <strong>{props.username}</strong> not found</h3>;
+            message = <>User <strong>{props.username}</strong> not found</>;
             break;
         }
         case "repo": {
-            message = `Repository ${props.repo} not found!`;
+            message = <>Repository <strong>{props.repo}</strong> not found!</>;
             break;
         }
 
         default: {
-            message = 'Page not found!';
             break;
         }
     }
@@ -30,7 +29,7 @@ const ErrorPage = (props) => {
     return (
         <Wrapper>
             <h1>404</h1>
-            {message}
+            <h3>{message}</h3>
             <Button to={"/"} variant={"primary"}>Go home</Button>
         </Wrapper>
     );

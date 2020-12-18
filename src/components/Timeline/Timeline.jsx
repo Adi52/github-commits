@@ -13,7 +13,6 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 
 
-
 // Styles
 import {CommitIcon, GithubIcon, LoadingIcon, StartRepoIcon, Wrapper} from "./Timeline.css";
 import { ThemeContext } from 'styled-components';
@@ -24,7 +23,7 @@ import { ThemeContext } from 'styled-components';
 moment.locale('');
 
 
-const Timeline = ({username, repo}) => {
+const Timeline = ({username, repo, setDisplayPage}) => {
     // Use theme from ThemeProvider without styled component
     const themeContext = useContext(ThemeContext);
     const [page, setPage] = useState(1);
@@ -34,9 +33,13 @@ const Timeline = ({username, repo}) => {
     useEffect(() => {
         request.get(`/repos/${username}/${repo}/commits?per_page=6&page=${page}`)
             .then((response) => {
-                setCommits([...commits, ...response.data]);
-                if (response.data.length === 0) {
-                    setLoadMore(false);
+                if (response && response.status === 404) {
+                    setDisplayPage(false);
+                } else {
+                    setCommits([...commits, ...response.data]);
+                    if (response.data.length === 0) {
+                        setLoadMore(false);
+                    }
                 }
             })
             .catch()
@@ -103,7 +106,7 @@ const Timeline = ({username, repo}) => {
                 </VerticalTimeline>
             </InfiniteScroll>
         </Wrapper>
-    );
+    )
 };
 
 export default Timeline;

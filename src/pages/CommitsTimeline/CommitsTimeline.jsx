@@ -1,11 +1,15 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {GitRepositoryIcon, RepoInfo, Wrapper} from "./CommitsTimeline.css";
 import {Link} from "react-router-dom";
 import Timeline from "../../components/Timeline/Timeline";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const CommitsTimeline = ({match}) => {
+
+    const [displayPage, setDisplayPage] = useState(true);
+
     const repo = match.params.repo;
     const username = match.params.user;
 
@@ -13,7 +17,7 @@ const CommitsTimeline = ({match}) => {
         document.title = `${username}/${repo}`;
     }, [username, repo])
 
-    return (
+    return displayPage ? (
         <Wrapper>
             <RepoInfo>
                 <h1>
@@ -24,11 +28,10 @@ const CommitsTimeline = ({match}) => {
             <Timeline
                 repo={repo}
                 username={username}
+                setDisplayPage={setDisplayPage}
             />
-
-
         </Wrapper>
-    );
+    ) : (<ErrorPage variant={'repo'} repo={repo}/>)
 };
 
 export default CommitsTimeline;
