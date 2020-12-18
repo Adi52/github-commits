@@ -15,13 +15,13 @@ const InputSearch = () => {
 
     const [userInput, setUserInput] = React.useState('');
 
-        const history = useHistory();
+    const history = useHistory();
 
     useEffect(() => {
         let active = true;
 
         if (userInput) {
-            request.get(`/search/users?q=${userInput}&per_page=5`)
+            request.get(`/search/users?q=${userInput}&per_page=4`)
 
                 .then((response) => {
                     if (active) {
@@ -52,6 +52,10 @@ const InputSearch = () => {
     }, [open]);
 
 
+    React.useEffect(() => {
+
+    }, [])
+
     const handleChangeInput = (e) => {
         setUserInput(e.target.value);
     };
@@ -77,10 +81,8 @@ const InputSearch = () => {
                     onClose={() => {
                         setOpen(false);
                     }}
-                    getOptionSelected={(option, value) => {
-                        setUserInput(value);
-                        return option.name === value.name
-                    }}
+                    onChange={(event, value) => setUserInput(value)}
+                    getOptionSelected={(option, value) => (option.name === value.name)}
                     getOptionLabel={(option) => option}
                     options={options}
                     loading={loading}
