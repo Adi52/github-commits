@@ -6,7 +6,7 @@ const spacing = {
     xl: 30,
 }
 
-const minSectionHeight = '83vh';
+const minSectionHeight = 'calc(90vh - 50px)';
 const defaultShadow = '0 6px 8px rgba(0, 0, 0, 0.3)';
 
 const fonts = {
@@ -14,12 +14,40 @@ const fonts = {
     first: "'Montserrat', sans-serif",
 }
 
-export const lightTheme = {
+
+// RWD
+const size = {
+    mobileS: '321px',
+    mobileM: '376px',
+    mobileL: '426px',
+    tablet: '769px',
+    laptop: '1025px',
+    laptopL: '1441px',
+    desktop: '2561px'
+}
+
+const device = {
+    mobileS: `max-width: ${size.mobileS}`,
+    mobileM: `max-width: ${size.mobileM}`,
+    mobileL: `max-width: ${size.mobileL}`,
+    tablet: `max-width: ${size.tablet}`,
+    laptop: `max-width: ${size.laptop}`,
+    laptopL: `max-width: ${size.laptopL}`,
+    desktop: `max-width: ${size.desktop}`,
+};
+// END RWD
+
+
+const theme = {
+    device: device,
     spacing: spacing,
     minSectionHeight: minSectionHeight,
     defaultShadow: defaultShadow,
     fonts: fonts,
+}
 
+export const lightTheme = {
+    ...theme,
     colors: {
         main: '#d9e4dd',
         secondary: '#c2beb8',
@@ -33,11 +61,7 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-    spacing: spacing,
-    minSectionHeight: minSectionHeight,
-    defaultShadow: defaultShadow,
-    fonts: fonts,
-
+    ...theme,
     colors: {
         main: '#525252',
         secondary: '#414141',

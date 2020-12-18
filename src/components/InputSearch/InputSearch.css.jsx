@@ -16,11 +16,15 @@ export const Buttons = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+        max-width: 90vw;
+    }
 `;
 
 
 export const AutocompleteStyles = styled.div`
-    font-family: ${({theme}) => theme.fonts.first} !important;
+    font-family: ${({theme}) => theme.fonts.first} !important; 
 
     & .MuiAutocomplete-root {
         width: 70%;
@@ -33,17 +37,27 @@ export const AutocompleteStyles = styled.div`
         border-radius: 25px;
         outline: none;
         font-family: ${({theme}) => theme.fonts.first} !important;
+        
+        @media (${({ theme }) => theme.device.mobileL}) {
+            max-width: 85vw;
+            height: 50px;
+        }
+        
+        @media (${({ theme }) => theme.device.mobileM}) {
+            max-width: 90vw;
+            height: 50px;
+        }
     
     .MuiAutocomplete-input {
         padding: 10px 10px !important;
         color: ${({theme}) => theme.colors.foreground};
-    
+        font-family: ${({theme}) => theme.fonts.first} !important;
     }
     
     & label {
         font-family: ${({theme}) => theme.fonts.first} !important;
         color: ${({theme}) => theme.colors.foreground};
-    
+        transform: translate(20px, 16px);
     }
     
     & .MuiOutlinedInput-notchedOutline {

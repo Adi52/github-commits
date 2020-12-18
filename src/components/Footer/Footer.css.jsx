@@ -12,26 +12,62 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: space-evenly;
     
-    height: 7vh;
+    //height: 7vh;
     min-height: 50px;
     background-color: ${({ theme }) => theme.colors.secondary};
     border-top: 1px solid ${({ theme }) => theme.colors.border};
     color: ${({ theme }) => theme.colors.textSecondary};
+
+    
+    @media (${({ theme }) => theme.device.laptopL}) {
+        font-size: 1rem;
+    }
+    
+    @media (${({ theme }) => theme.device.mobileL}) {
+        flex-wrap: wrap;
+        max-height: 100px;
+        //justify-content: center;
+
+    }
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+        flex-wrap: wrap;
+        max-height: 100px;
+    }
 `;
 
 
 export const CopyrightIcon = styled(CopyrightI)`
     width: ${({ theme }) => theme.spacing.sm}px;
     margin-right: ${({ theme }) => theme.spacing.sm/2}px;
+    
+    @media (${({ theme }) => theme.device.laptopL}) {
+        width: ${({ theme }) => theme.spacing.sm}px;
+    }
 `;
 
 export const Copyright = styled.div`
     display: flex;
+    
+    @media (${({ theme }) => theme.device.mobileL}) {
+        flex-basis: 50%;
+        justify-content: center;
+    }
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: ${({ theme }) => theme.spacing.xs/2}px;
+    }
 `;
 
 export const GithubIcon = styled(GithubI)`
     width: ${({ theme }) => theme.spacing.sm}px;
     margin-right: ${({ theme }) => theme.spacing.sm/2}px;
+    
+    @media (${({ theme }) => theme.device.laptopL}) {
+        width: ${({ theme }) => theme.spacing.sm}px;
+    }
 `;
 
 export const Github = styled.a`
@@ -42,11 +78,26 @@ export const Github = styled.a`
     :hover {
         text-decoration: underline;
     }
+        
+    @media (${({ theme }) => theme.device.mobileL}) {
+        flex-basis: 50%;
+        justify-content: center;
+    }
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: ${({ theme }) => theme.spacing.xs/2}px;
+    }
 `;
 
 export const MailIcon = styled(MailI)`
     width: ${({ theme }) => theme.spacing.sm}px;
     margin-right: ${({ theme }) => theme.spacing.sm/2}px;
+    
+    @media (${({ theme }) => theme.device.laptopL}) {
+        width: ${({ theme }) => theme.spacing.sm}px;
+    }
 `;
 
 export const Mail = styled.a`
@@ -57,14 +108,40 @@ export const Mail = styled.a`
     :hover {
         text-decoration: underline;
     }
+    
+    @media (${({ theme }) => theme.device.mobileL}) {
+        flex-basis: 50%;
+        justify-content: center;
+    }
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: ${({ theme }) => theme.spacing.xs/2}px;
+    }
 `;
 
 export const LocalizationIcon = styled(LocationI)`
     width: ${({ theme }) => theme.spacing.sm}px;
     margin-right: ${({ theme }) => theme.spacing.sm/2}px;
+    
+    @media (${({ theme }) => theme.device.laptopL}) {
+        width: ${({ theme }) => theme.spacing.sm}px;
+    }
 `;
 
 export const Localization = styled.div`
     display: flex;
     align-items: center;
+    
+    @media (${({ theme }) => theme.device.mobileL}) {
+        flex-basis: 50%;
+        justify-content: center;
+    }
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+        flex-basis: 100%;
+        justify-content: center;
+        margin: ${({ theme }) => theme.spacing.xs/2}px 0;
+    }
 `;

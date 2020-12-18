@@ -13,6 +13,12 @@ const RootButton = styled.button`
     font-weight: bold;
     min-width: 150px;
     
+    @media (${({ theme }) => theme.device.mobileM}) {
+        padding: ${({theme}) => theme.spacing.xs}px ${({theme}) => theme.spacing.sm}px; 
+        min-width: 120px;
+        width: 120px;
+    }
+    
     &:hover {
       cursor: pointer;
     }

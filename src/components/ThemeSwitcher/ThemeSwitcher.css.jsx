@@ -1,7 +1,16 @@
 import styled from 'styled-components'
 
 
-export const Switcher = styled.div`         
+export const Switcher = styled.div`        
+    
+    @media (${({ theme }) => theme.device.laptopL}) {
+        transform: scale(1);
+    }
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+        transform: scale(0.8);
+    }
+   
     label { 
         box-sizing: content-box;
         position: relative ; 

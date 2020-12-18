@@ -64,56 +64,56 @@ const InputSearch = () => {
     }
 
     return (
-            <Form onSubmit={handleSubmit}>
-                <AutocompleteStyles>
-                    <Autocomplete
-                        id="github-users-api"
-                        style={{ width: 700 }}
-                        // classes={classes}
-                        open={open}
-                        onOpen={() => {
-                            setOpen(true);
-                        }}
-                        onClose={() => {
-                            setOpen(false);
-                        }}
-                        getOptionSelected={(option, value) => {
-                            setUserInput(value);
-                            return option.name === value.name
-                        }}
-                        getOptionLabel={(option) => option}
-                        options={options}
-                        loading={loading}
-                        renderInput={(params) => (
-                            <TextField
-                                onChange={handleChangeInput}
-                                {...params}
-                                label="Username"
-                                variant="outlined"
-                                InputProps={{
-                                    ...params.InputProps,
-                                    endAdornment: (
-                                        <React.Fragment>
-                                            {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                                            {params.InputProps.endAdornment}
-                                        </React.Fragment>
-                                    ),
-                                }}
-                            />
-                        )}
-                    />
-                </AutocompleteStyles>
+        <Form onSubmit={handleSubmit}>
+            <AutocompleteStyles>
+                <Autocomplete
+                    id="github-users-api"
+                    style={{ width: 700 }}
+                    // classes={classes}
+                    open={open}
+                    onOpen={() => {
+                        setOpen(true);
+                    }}
+                    onClose={() => {
+                        setOpen(false);
+                    }}
+                    getOptionSelected={(option, value) => {
+                        setUserInput(value);
+                        return option.name === value.name
+                    }}
+                    getOptionLabel={(option) => option}
+                    options={options}
+                    loading={loading}
+                    renderInput={(params) => (
+                        <TextField
+                            onChange={handleChangeInput}
+                            {...params}
+                            label="Username"
+                            variant="outlined"
+                            InputProps={{
+                                ...params.InputProps,
+                                endAdornment: (
+                                    <React.Fragment>
+                                        {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                                        {params.InputProps.endAdornment}
+                                    </React.Fragment>
+                                ),
+                            }}
+                        />
+                    )}
+                />
+            </AutocompleteStyles>
 
-                <Buttons>
-                    <Button variant={"regular"} to={'/user/adi52'} type="button">
-                        Example
-                    </Button>
+            <Buttons>
+                <Button variant={"regular"} to={'/user/adi52'} type="button">
+                    Example
+                </Button>
 
-                    <Button variant={"primary"} type="submit">
-                        Search
-                    </Button>
-                </Buttons>
-            </Form>
+                <Button variant={"primary"} type="submit">
+                    Search
+                </Button>
+            </Buttons>
+        </Form>
     );
 }
 

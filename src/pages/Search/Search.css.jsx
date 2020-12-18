@@ -6,4 +6,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
     min-height: ${({ theme }) => theme.minSectionHeight};
+    
+    @media (${({ theme }) => theme.device.mobileM}) {
+          min-height: calc(${({ theme }) => theme.minSectionHeight} - 50px);
+    }    
 `;
