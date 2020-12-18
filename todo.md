@@ -9,5 +9,5 @@
 * ~~Use memo optimizations~~
 * ~~Change my input <OldSuggestions/> to autocomplete (Material-UI)~~
 * ~~Add margin top to search input (too close text)~~
+* ~~RWD~~
 * Add animations between pages (AWESOME!)
-* RWD
