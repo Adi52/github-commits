@@ -40,12 +40,10 @@ export const AutocompleteStyles = styled.div`
         
         @media (${({ theme }) => theme.device.mobileL}) {
             max-width: 85vw;
-            height: 50px;
         }
         
         @media (${({ theme }) => theme.device.mobileM}) {
             max-width: 90vw;
-            height: 50px;
         }
     
     .MuiAutocomplete-input {
@@ -57,7 +55,7 @@ export const AutocompleteStyles = styled.div`
     & label {
         font-family: ${({theme}) => theme.fonts.first} !important;
         color: ${({theme}) => theme.colors.foreground};
-        transform: translate(20px, 16px);
+        transform: translate(20px, 18px);
     }
     
     & .MuiOutlinedInput-notchedOutline {

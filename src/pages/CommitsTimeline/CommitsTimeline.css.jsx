@@ -24,6 +24,15 @@ export const RepoInfo = styled.div`
     align-items: center;
     color: ${({theme}) => theme.colors.contrast};
     padding-top: ${({theme}) => theme.spacing.sm}px;
+    word-wrap: break-word;
+
+    
+    
+    @media (${({ theme }) => theme.device.mobileL}) {
+        text-align: center;
+        padding: ${({theme}) => theme.spacing.xs}px;
+    }  
+    
     
     a {
         color: ${({theme}) => theme.colors.contrast};
