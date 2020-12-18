@@ -45,11 +45,7 @@ export const Title = styled.div`
         text-decoration: none;
         color: ${({ theme }) => theme.colors.text};
         font-weight: bold;
-        
-        @media (${({ theme }) => theme.device.tablet}) {
-            word-wrap: break-word;
-            max-width: 90%;
-        }  
+        word-break: break-all;
         
         :hover {
         text-decoration: underline;
@@ -63,10 +59,7 @@ export const Description = styled.p`
     color: ${({ theme }) => theme.colors.textSecondary};
     font-weight: normal !important;
     margin: ${({ theme }) => theme.spacing.xs}px 0;
-    
-    @media (${({ theme }) => theme.device.tablet}) {
-        word-wrap: break-word;
-    }  
+    word-break: break-all;
 `;
 
 export const Language = styled.div`

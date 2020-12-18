@@ -8,7 +8,7 @@ export const Container = styled.div`
     align-items: center;
     align-content: center;
     height: 10vh;
-    //min-height: 75px;
+    min-height: 55px;
     background-color: ${({ theme }) => theme.colors.foreground};
     padding: 0 ${({ theme }) => theme.spacing.xl}px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.contrast};
