@@ -42,7 +42,7 @@ const Timeline = ({username, repo, setDisplayPage}) => {
                     }
                 }
             })
-            .catch()
+            .catch(error => console.log(error));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page])
 

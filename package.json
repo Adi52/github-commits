@@ -1,4 +1,5 @@
 {
+  "homepage": "https://adi52.github.io/github-commits",
   "name": "github-commits",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^12.5.0",
     "@types/react": "^17.0.0",
     "axios": "^0.21.0",
+    "gh-pages": "^3.1.0",
     "moment": "^2.29.1",
     "polished": "^4.0.5",
     "prop-types": "^15.7.2",
@@ -32,7 +34,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
