@@ -13,13 +13,14 @@ export const Wrapper = styled.div`
     bottom: 0;
     width: 100%;
 
+    
 
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     
-    //height: 7vh;
-    min-height: 50px;
+    
+    height: 50px;
     background-color: ${({ theme }) => theme.colors.secondary};
     border-top: 1px solid ${({ theme }) => theme.colors.border};
     color: ${({ theme }) => theme.colors.textSecondary};
@@ -61,7 +62,7 @@ export const Copyright = styled.div`
     }
     
     @media (${({ theme }) => theme.device.mobileM}) {
-        flex-basis: 100%;
+        flex-basis: 50%;
         justify-content: center;
         margin-top: ${({ theme }) => theme.spacing.xs/2}px;
     }
@@ -91,7 +92,7 @@ export const Github = styled.a`
     }
     
     @media (${({ theme }) => theme.device.mobileM}) {
-        flex-basis: 100%;
+        flex-basis: 50%;
         justify-content: center;
         margin-top: ${({ theme }) => theme.spacing.xs/2}px;
     }
@@ -121,7 +122,7 @@ export const Mail = styled.a`
     }
     
     @media (${({ theme }) => theme.device.mobileM}) {
-        flex-basis: 100%;
+        flex-basis: 50%;
         justify-content: center;
         margin-top: ${({ theme }) => theme.spacing.xs/2}px;
     }
@@ -146,8 +147,6 @@ export const Localization = styled.div`
     }
     
     @media (${({ theme }) => theme.device.mobileM}) {
-        flex-basis: 100%;
-        justify-content: center;
-        margin: ${({ theme }) => theme.spacing.xs/2}px 0;
+        display: none;
     }
 `;

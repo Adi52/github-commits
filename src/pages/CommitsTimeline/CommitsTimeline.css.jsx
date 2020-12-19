@@ -26,8 +26,6 @@ export const RepoInfo = styled.div`
     padding-top: ${({theme}) => theme.spacing.sm}px;
     word-wrap: break-word;
 
-    
-    
     @media (${({ theme }) => theme.device.mobileL}) {
         text-align: center;
         padding: ${({theme}) => theme.spacing.xs}px;
