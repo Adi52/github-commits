@@ -31,7 +31,7 @@ const App = () => {
         <ThemeProvider
             theme={theme === 'dark' ? darkTheme : lightTheme}>
             <GlobalStyles/>
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <LogoWrapper/>
                 <Switch>
                     <Route exact path={"/"} component={Search}/>
