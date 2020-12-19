@@ -25,6 +25,7 @@ import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
 
 import styled from 'styled-components';
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const TransitionGroupWrapper = styled.div`
   .fade-enter {
@@ -71,6 +72,7 @@ const App = () => {
         <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
             <GlobalStyles/>
             <Router basename={process.env.PUBLIC_URL}>
+                <ScrollToTop/>
                 <LogoWrapper/>
                 <Route style={{paddingBottom: 50}} render={({location}) => (
                     <TransitionGroupWrapper>
@@ -91,7 +93,8 @@ const App = () => {
                             </CSSTransition>
                         </TransitionGroup>
                     </TransitionGroupWrapper>
-                )}/>
+
+                 )}/>
 
 
                 <ScrollUpButton />
