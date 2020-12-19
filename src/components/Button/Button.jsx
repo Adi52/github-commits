@@ -24,7 +24,7 @@ const Button = ({ variant, children, ...props }) => {
     ), [props, children])
 
     return to ? (
-        <Link {...props}>
+        <Link {...props} style={{textDecoration: 'none'}}>
             {content}
         </Link>
     ) : (

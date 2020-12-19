@@ -1,48 +1,40 @@
 import styled from 'styled-components';
 
-const RootButton = styled.button`
-    background: none;
-    border: 2px solid ${({theme}) => theme.colors.contrast};
-    font: inherit;
-    line-height: 1;
-    margin: ${({theme}) => theme.spacing.xs}px;
-    padding: ${({theme}) => theme.spacing.xs}px ${({theme}) => theme.spacing.xl}px; 
-    border-radius: ${({theme}) => theme.spacing.xs / 2}px;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    min-width: 150px;
-    
-    @media (${({ theme }) => theme.device.mobileM}) {
-        padding: ${({theme}) => theme.spacing.xs}px ${({theme}) => theme.spacing.sm}px; 
-        min-width: 120px;
-        width: 120px;
-    }
-    
-    &:hover {
-      cursor: pointer;
-    }
-`
 
-export const RegularButton = styled(RootButton)`
-    color: ${({theme}) => theme.colors.contrast};
-    transition: 0.4s;
-    
-    &:hover,
-    &:focus { 
-        color: ${({theme}) => theme.colors.foreground};
-        box-shadow: inset ${({theme}) => theme.spacing.xl * 5}px 0 0 0 ${({theme}) => theme.colors.contrast};
-`;
+
+import Button from '@material-ui/core/Button';
+
+export const RootButton = styled(Button)`
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  border-radius: ${({theme}) => theme.spacing.xs / 2}px !important;
+  color: ${({theme}) => theme.colors.text} !important;
+  margin: 0 ${({theme}) => theme.spacing.xs}px !important;
+  padding: ${({theme}) => theme.spacing.xs/3}px ${({theme}) => theme.spacing.xl}px !important;
+  font-weight: bold !important;
+  min-width: 150px !important;
+  font-family: ${({theme}) => theme.fonts.first} !important;
+  font-size: 1rem !important;
+  border: 2px solid ${({theme}) => theme.colors.lightenContrast} !important;
+  text-decoration: none !important;
+`
 
 
 export const PrimaryButton = styled(RootButton)`
-    background-color: ${({theme}) => theme.colors.contrast};
-    color: ${({theme}) => theme.colors.foreground};
-    transition: 0.4s;
-    
-    &:hover,
-    &:focus {
-        border-color: ${({theme}) => theme.colors.lightenContrast};
-        box-shadow: inset ${({theme}) => theme.spacing.xl * 5}px 0 0 0 ${({theme}) => theme.colors.lightenContrast};
-    }
+  background-color: ${({theme}) => theme.colors.lightenContrast} !important;
+  
+  &:hover {
+    background-color: ${({theme}) => theme.colors.contrast} !important;
+    border-color: ${({theme}) => theme.colors.contrast} !important;
+  }
+
+`;
+
+export const RegularButton = styled(RootButton)`
+  background-color: transparent !important;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-color: ${({theme}) => theme.colors.contrast} !important;
+  }
+
 `;
