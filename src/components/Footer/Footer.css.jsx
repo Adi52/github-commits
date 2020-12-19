@@ -8,6 +8,12 @@ import {Location as LocationI} from "@styled-icons/entypo/Location";
 
 
 export const Wrapper = styled.div`
+    
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+
     display: flex;
     align-items: center;
     justify-content: space-evenly;

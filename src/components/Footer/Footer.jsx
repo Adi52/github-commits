@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Copyright,
     CopyrightIcon,
@@ -11,7 +11,9 @@ import {
     Wrapper
 } from "./Footer.css";
 
+
 const Footer = () => {
+
 
 
     return (

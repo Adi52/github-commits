@@ -7,6 +7,8 @@ import {
     Route
 } from "react-router-dom";
 
+import {CSSTransition, TransitionGroup} from "react-transition-group";
+
 // Themes
 import {darkTheme, lightTheme} from "./utils/theme";
 
@@ -19,30 +21,87 @@ import CommitsTimeline from "./pages/CommitsTimeline/CommitsTimeline";
 import GlobalStyles from './index.css'
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import UserInfo from "./pages/UserRepos/UserInfo";
-import Footer from "./components/Footer/Footer";
 import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
+
+import styled from 'styled-components';
+
+const TransitionGroupWrapper = styled.div`
+  .fade-enter {
+    opacity: 0.01;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+
+  .fade-exit {
+    opacity: 1;
+    transform: scale(1);
+
+    
+    &.fade-exit-active {
+        opacity: 0.01;
+        transition: opacity 500ms ease-in;
+    }
+  }
+
+  div.transition-group {
+    position: relative;
+  }
+
+  section.route-section {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+`;
+
+
+
 
 
 const App = () => {
     const {theme} = useContext(StoreContext);
 
 
+
     return (
-        <ThemeProvider
-            theme={theme === 'dark' ? darkTheme : lightTheme}>
+
+        <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
             <GlobalStyles/>
             <Router basename={process.env.PUBLIC_URL}>
                 <LogoWrapper/>
-                <Switch>
-                    <Route exact path={"/"} component={Search}/>
-                    <Route exact path={"/user/:user"} component={UserInfo}/>
-                    <Route path={"/user/:user/:repo"} component={CommitsTimeline}/>
-                    <Route component={ErrorPage} />
-                </Switch>
-                <Footer />
+
+
+                    <Route render={({location}) => (
+                        <TransitionGroupWrapper>
+                            <TransitionGroup className="transition-group">
+                                <CSSTransition
+                                    key={location.key}
+                                    timeout={{ enter: 500, exit: 500 }}
+                                    classNames="fade"
+                                >
+                                    <section className="route-section">
+                                        <Switch location={location}>
+                                            <Route exact path={"/"} component={Search}/>
+                                            <Route exact path={"/user/:user"} component={UserInfo}/>
+                                            <Route path={"/user/:user/:repo"} component={CommitsTimeline}/>
+                                            <Route component={ErrorPage} />
+                                        </Switch>
+                                    </section>
+                                </CSSTransition>
+                            </TransitionGroup>
+                        </TransitionGroupWrapper>
+                    )}/>
+
+
                 <ScrollUpButton />
             </Router>
+
         </ThemeProvider>
+
     );
 }
 
