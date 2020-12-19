@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 
 import {AutocompleteStyles, Buttons, Form} from "./InputSearch.css";
 import Button from "../Button/Button";
+import {gsap} from "gsap";
 
 const InputSearch = () => {
     const [open, setOpen] = React.useState(false);
@@ -67,9 +68,29 @@ const InputSearch = () => {
         }
     }
 
+
+    useEffect(() => {
+        document.title = 'githubCommits';
+    }, [])
+
+    let input = useRef(null);
+    let buttons = useRef(null);
+
+    useEffect(() => {
+        gsap.from([input, buttons], 0.8, {
+            delay: 1.6,
+            ease: "power3.out",
+            opacity: 0,
+            y: 10,
+            stagger: {
+                amount: 0.3
+            }
+        })
+    }, []);
+
     return (
         <Form onSubmit={handleSubmit}>
-            <AutocompleteStyles>
+            <AutocompleteStyles ref={el => (input = el)}>
                 <Autocomplete
                     id="github-users-api"
                     style={{ width: 700 }}
@@ -106,7 +127,7 @@ const InputSearch = () => {
                 />
             </AutocompleteStyles>
 
-            <Buttons>
+            <Buttons ref={el => (buttons = el)}>
                 <Button variant={"regular"} to={'/user/adi52'} type="button">
                     Example
                 </Button>

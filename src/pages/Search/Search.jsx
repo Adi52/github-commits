@@ -1,16 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import {Container} from './Search.css';
 import Titles from "../../components/Titles/Titles";
 import InputSearch from "../../components/InputSearch/InputSearch";
 
-
 const Search = () => {
-
-    useEffect(() => {
-        document.title = 'githubCommits';
-    }, [])
-
     return (
         <Container>
             <Titles
