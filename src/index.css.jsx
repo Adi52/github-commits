@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 import {normalize} from 'styled-normalize';
 
 export default createGlobalStyle`
@@ -64,3 +64,37 @@ export default createGlobalStyle`
     // end input
     }
 `
+
+export const TransitionGroupWrapper = styled.div`
+  .fade-enter {
+    opacity: 0.01;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+
+  .fade-exit {
+    opacity: 1;
+    transform: scale(1);
+
+    
+    &.fade-exit-active {
+        opacity: 0.01;
+        transition: opacity 500ms ease-in;
+    }
+  }
+
+  div.transition-group {
+    position: relative;
+  }
+
+  section.route-section {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-bottom: 50px;
+  }
+`;

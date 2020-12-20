@@ -18,54 +18,17 @@ import Search from "./pages/Search/Search";
 import CommitsTimeline from "./pages/CommitsTimeline/CommitsTimeline";
 
 // Components and styles
-import GlobalStyles from './index.css'
+import GlobalStyles, {TransitionGroupWrapper} from './index.css'
 import LogoWrapper from "./components/LogoWrapper/LogoWrapper";
 import UserInfo from "./pages/UserRepos/UserInfo";
 import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
 
-import styled from 'styled-components';
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-
-const TransitionGroupWrapper = styled.div`
-  .fade-enter {
-    opacity: 0.01;
-  }
-
-  &.fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-
-  .fade-exit {
-    opacity: 1;
-    transform: scale(1);
-
-    
-    &.fade-exit-active {
-        opacity: 0.01;
-        transition: opacity 500ms ease-in;
-    }
-  }
-
-  div.transition-group {
-    position: relative;
-  }
-
-  section.route-section {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding-bottom: 50px;
-  }
-`;
 
 
 const App = () => {
     const {theme} = useContext(StoreContext);
-
-
 
     return (
 
