@@ -12,7 +12,7 @@
 * [General info](#general-info)
   * [Theme Switcher](#theme-switcher)
   * [Infinite Scroll](#infinite-scroll)
-* [Availability](#RWD)
+* [RWD](#RWD-computer)
 * [Technologies](#technologies)
 * [API](#API-cloud)
 * [Setup](#setup-dvd)
@@ -81,7 +81,7 @@ $ npm install
 $ npm start
 `
 
-*Type in the browser:  
+* Type in the browser:  
 
 `http://localhost:3000`
 
